@@ -1,6 +1,14 @@
 # Titan "Cheat Sheet"
 Where do I begin?
 
+Maybe with some arithmetic?
+
+```
+1 2 + 3 × 3 - 2 ÷
+```
+
+Oh, I know!
+
 With the classic hello world, of course!
 
 ```
