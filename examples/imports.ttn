@@ -1,0 +1,5 @@
+using std.manip
+using std.cond
+using std.out
+
+1 2 ⟷ .nl .nl

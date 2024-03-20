@@ -423,6 +423,9 @@ class VM {
 				case TokenKind.Enquote:
 					stack.enquote();
 					break;
+				case TokenKind.Import:
+					ip++;
+					break;
 				default: {
 					import std.stdio;
 					stderr.writeln("Not implemented!");

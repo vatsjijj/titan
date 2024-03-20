@@ -25,6 +25,7 @@ enum TokenKind {
 	LessEqu, GreaterEqu,
 	MovStack2, TakeStack2,
 	Cardinality,
+	Import,
 }
 
 private struct TokenHolder {
@@ -251,6 +252,9 @@ final class Lexer {
 				break;
 			case "#":
 				toks ~= Container(TokenPrimitive(TokenKind.Cardinality, tmp, tmpLine, tmpCol));
+				break;
+			case "using":
+				toks ~= Container(TokenPrimitive(TokenKind.Import, tmp, tmpLine, tmpCol));
 				break;
 			default:
 				toks ~= Container(TokenPrimitive(TokenKind.Identifier, tmp, tmpLine, tmpCol));

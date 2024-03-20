@@ -1,0 +1,17 @@
+using std.manip
+using std.smanip
+
+T == [1]
+F == [0]
+
+?  == [⋄ ⟷ / ∘]
+
+do == [
+   >s2
+   <s 1 -
+   >s
+   :s2 /
+   [<s2 do] ∪
+   [<s2 / /]
+   :s ¬1 ≠ ?
+]

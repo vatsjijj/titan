@@ -16,7 +16,7 @@ int main(string[] args) {
 		wstring file = to!wstring(readText(args[1])) ~ '\n';
 		Lexer lex = new Lexer(file);
 		lex.tokenize();
-		RuntimeContainer rtc = new RuntimeContainer(lex.getToks());
+		RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), getcwd());
 		rtc.pass();
 		VM rt = new VM(lex, rtc);
 		rt.run(lex.getToks());

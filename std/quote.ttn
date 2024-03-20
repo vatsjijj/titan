@@ -1,0 +1,22 @@
+using std.manip
+using std.smanip
+using std.cond
+
+⊥ == [
+   >s2
+   :s2 / ∘
+   :s2 ⟷
+   # 1 - do
+   <s2 / /
+]
+
+∀ == [
+   >s2
+   :s2 / ∘
+   :s2 /
+   # 1 -
+   : ' [⋄] ∪ :s ∪ ['] ∪
+   ⟷ 1 + do
+   <s /
+   [∪] <s # 1 - do
+]
