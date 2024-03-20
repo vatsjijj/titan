@@ -20,9 +20,6 @@ int main(string[] args) {
 		rtc.pass();
 		VM rt = new VM(lex, rtc);
 		rt.run(lex.getToks());
-		foreach (item; rt.getStack2().content) {
-			writeln(item);
-		}
 	}
 	catch (Exception e) {
 		stderr.writeln(e.message);
