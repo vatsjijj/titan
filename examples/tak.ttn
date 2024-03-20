@@ -1,0 +1,19 @@
+using std.manip
+using std.smanip
+using std.quote
+using std.cond
+using std.out
+
+⋮ Z Y X -> S
+tak == [
+   3 ⊑ >s
+   [
+      :s ∘ 1 - tak
+      :s ∘ ⟷ 1 - ⍉ ⟷ tak
+      <s ∘ ⍉ 1 - tak
+   ]
+   [<s ∘ /2]
+   :s ∘ ⍉ / < ?
+]
+
+8 4 7 tak .nl
