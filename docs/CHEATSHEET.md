@@ -55,6 +55,15 @@ Titan only has *three* primitive types.
 
 It may look like Titan has a string type, but strings are actually desugared into quotes of characters.
 
+## Imports
+Imports in Titan are extremely easy, and this may be the shortest section of this sheet.
+
+```
+using std.out
+```
+
+And that's it. It searches for a file located at `$(cwd)/std/out.ttn`, reads it, and takes a pass over it. Simple.
+
 ## Quotes and Functions
 In Titan, programs and functions depend heavily on quotes. As you may have noticed, the predefined functions you currently have at your desposal are extremely limited and are useless on their own.
 
@@ -107,3 +116,33 @@ And just like that, you have `IF`!
 ```
 ["True!" .] ["False!" .] T ?
 ```
+
+Want a loop? Easy!
+
+```
+∇ == [
+   >s2
+   <s 1 -
+   >s
+   :s2 /
+   [<s2 ∇] ∪
+   [<s2 / /]
+   :s ¬1 ≠ ?
+]
+```
+
+Okay, admittedly, this is *not* so easy, and uses many words defined in the standard library. This would take a while to explain actually, but it's used quite simply.
+
+```
+["Loop! " .] 5 ∇
+```
+
+This will loop five times, unsurprisingly printing `Loop! ` five times as well.
+
+Now remember how much you wanted that newline? You've earned it, here it is.
+
+```
+.nl == [`%n` ⟷ . .]
+```
+
+__*More will likely be added to this document in the future.*__
