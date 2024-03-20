@@ -22,7 +22,9 @@ With the classic hello world, of course!
 "Hello, world!" .
 ```
 
-*"But wait!! Where's my newline?"* You may cry, and don't worry, we'll get to that.
+*"But wait!! Where's my newline?"*
+
+Don't worry, we'll get to that.
 
 ## Primitive Functions
 Titan has a small number of primitive functions, which consists of basic arithmetic operations and comparison operations.
@@ -40,7 +42,9 @@ There are some functions of note, though.
 - `<s`, known as `TAKESECONDARY`. This will move a value from the top of the secondary stack to the main stack.
 - `#`, known as `CARDINALITY`. This will pop a quote off the top of the stack and push the length of that quote onto the stack.
 
-*"Wait? No SWAP, ROT, OVER, or anything else? This language is utterly useless!"* Don't worry, wait a bit more and I'll get to that later.
+*"Wait? No SWAP, ROT, OVER, or anything else? This language is utterly useless!"*
+
+Again, don't worry, wait a bit more and I'll get to that later.
 
 ## Primitive Types
 Titan only has *three* primitive types.
@@ -92,7 +96,9 @@ But enough with these *boring* functions, let's do something extra useful. Somet
 ?  == [⋄ ⟷ / ∘]
 ```
 
-*"Wait... That's it?!"* Yes, yes it is, considering we have `TRUE` and `FALSE` defined as `[1]` and `[0]` respectively, this is actually extremely clever.
+*"Wait... That's it?!"*
+
+Yes, yes it is, considering we have `TRUE` and `FALSE` defined as `[1]` and `[0]` respectively, this is actually extremely clever.
 
 It pulls the respective condition, swaps it out with the unneeded one, slashes it, and then applies the needed condition.
 
