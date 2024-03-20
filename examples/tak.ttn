@@ -8,9 +8,10 @@ using std.out
 tak == [
    3 ⊑ >s
    [
-      :s ∘ 1 - tak
+      :s ∘ ⍉ 1 - tak
       :s ∘ ⟷ 1 - ⍉ ⟷ tak
-      <s ∘ ⍉ 1 - tak
+      <s ∘ 1 - tak
+      tak
    ]
    [<s ∘ /2]
    :s ∘ ⍉ / < ?
