@@ -1,0 +1,6 @@
+using std.quote
+using std.out
+
+1 10 ,, 10 ⊑ .nl
+
+1 10 .. [: 2 × ⟷ ' ⟷ ' ∪] ∀ .nl

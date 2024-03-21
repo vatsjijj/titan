@@ -28,3 +28,14 @@ using std.cond
    :s 1 + ∇
    [∪] <s ∇
 ]
+
+⋮ Tentative name for RANGE.
+,, == [
+   >s2
+   [<s <s : 1 + ⍉ ,,]
+   [<s2 /2]
+   :s2 ≤ ?
+]
+
+⋮ Tentative name for QUOTEDRANGE.
+.. == [: >s ,, <s ⊑]
