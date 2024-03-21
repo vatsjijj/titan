@@ -1,0 +1,7 @@
+using std.manip
+using std.quote
+using std.out
+
+avg == [: # ⟷ [+] ⊥ ⟷ ÷]
+
+[1 2 3 4 5] avg .nl
