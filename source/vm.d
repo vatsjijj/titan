@@ -389,7 +389,7 @@ class VM {
 						run(table[toks[ip].prim.holder.content].quote.toks);
 					}
 					else {
-						stack.toss("Identifier does not exist.");
+						stack.toss("Identifier does not exist: " ~ to!string(toks[ip].prim.holder.content));
 					}
 					break;
 				}
