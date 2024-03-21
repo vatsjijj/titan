@@ -240,6 +240,15 @@ struct Stack {
 		curr().num.prim.num /= b.num.prim.num;
 	}
 
+	void mod() {
+		auto b = pop();
+		if (!curr().isKind(ValueKind.Number) || !b.isKind(ValueKind.Number)) {
+			toss("MODULO expects two numbers.");
+		}
+		curr().num.num %= b.num.num;
+		curr().num.prim.num %= b.num.prim.num;
+	}
+
 	void dup() {
 		push(content[$ - 1]);
 	}
@@ -357,6 +366,9 @@ class VM {
 					break;
 				case TokenKind.Div:
 					stack.div();
+					break;
+				case TokenKind.Modulo:
+					stack.mod();
 					break;
 				case TokenKind.Slash:
 					stack.pop();

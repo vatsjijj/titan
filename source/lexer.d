@@ -10,6 +10,7 @@ enum TokenKind {
 	Quote,
 	Plus, Minus,
 	Mult, Div,
+	Modulo,
 	Union,
 	Intersection,
 	Apply,
@@ -198,6 +199,9 @@ final class Lexer {
 				break;
 			case "÷":
 				toks ~= Container(TokenPrimitive(TokenKind.Div, tmp, tmpLine, tmpCol));
+				break;
+			case "%":
+				toks ~= Container(TokenPrimitive(TokenKind.Modulo, tmp, tmpLine, tmpCol));
 				break;
 			case "∪":
 				toks ~= Container(TokenPrimitive(TokenKind.Union, tmp, tmpLine, tmpCol));

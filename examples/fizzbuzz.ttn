@@ -1,0 +1,23 @@
+using std.manip
+using std.quote
+using std.cond
+using std.out
+
+fizzbuzz == [
+   : 15 % 0 =
+   ["FizzBuzz" .nl /]
+   [
+      : 5 % 0 =
+      ["Buzz" .nl /]
+      [
+         : 3 % 0 =
+         ["Fizz" .nl /]
+         [.nl]
+         ⍉ ?
+      ]
+      ⍉ ?
+   ]
+   ⍉ ?
+]
+
+1 30 .. [: fizzbuzz] ∀ /
