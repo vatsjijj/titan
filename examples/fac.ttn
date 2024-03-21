@@ -1,0 +1,7 @@
+using std.manip
+using std.cond
+using std.out
+
+fac == [: [/ 1] [: 1 - fac ×] ⍉ 0 = ?]
+
+5 fac .nl
