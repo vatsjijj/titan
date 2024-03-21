@@ -249,8 +249,9 @@ struct Stack {
 			toss("SNATCH expects a number.");
 		}
 		auto item = pop();
-		auto val = content[($ - 1) - (cast(ulong)item.num.num)];
-		content = content.remove((content.length - 1) - (cast(ulong)item.num.num));
+		auto idx = (content.length - 1) - (cast(ulong)item.num.num);
+		auto val = content[idx];
+		content = content.remove(idx);
 		push(val);
 	}
 
@@ -333,15 +334,17 @@ class VM {
 	void run(ref Container[] toks) {
 		ulong ip = 0;
 		while (ip < toks.length) {
-			switch (toks[ip].getKind()) {
+			auto kind = toks[ip].getKind();
+			auto prim = toks[ip].prim;
+			switch (kind) {
 				case TokenKind.Quote:
 					stack.push(Value(Quote(toks[ip].quote)));
 					break;
 				case TokenKind.Char:
-					stack.push(Value(Char(toks[ip].prim)));
+					stack.push(Value(Char(prim)));
 					break;
 				case TokenKind.Number:
-					stack.push(Value(Number(toks[ip].prim)));
+					stack.push(Value(Number(prim)));
 					break;
 				case TokenKind.Plus:
 					stack.plus();
@@ -385,11 +388,11 @@ class VM {
 							break;
 						}
 					}
-					if (rtc.exists(toks[ip].prim.holder.content)) {
-						run(table[toks[ip].prim.holder.content].quote.toks);
+					if (rtc.exists(prim.holder.content)) {
+						run(table[prim.holder.content].quote.toks);
 					}
 					else {
-						stack.toss("Identifier does not exist: " ~ to!string(toks[ip].prim.holder.content));
+						stack.toss("Identifier does not exist: " ~ to!string(prim.holder.content));
 					}
 					break;
 				}

@@ -4,4 +4,4 @@ using std.out
 
 recfib == [: [1 - : 1 - recfib ⟷ recfib +] [] ⍉ 1 > ?]
 
-9 recfib .nl
+20 recfib .nl
