@@ -106,7 +106,7 @@ struct Container {
 		return quote.holder.kind == kind;
 	}
 
-	ref TokenKind getKind() {
+	TokenKind getKind() {
 		if (isPrim) return prim.holder.kind;
 		return quote.holder.kind;
 	}
@@ -148,12 +148,12 @@ struct Container {
 		}
 		else {
 			if (this.quote.toks.length != cont.quote.toks.length) return false;
+			if (this.quote.toks.length == 0 && cont.quote.toks.length == 0) return true;
 			foreach (i; 0..(this.quote.toks.length - 1)) {
 				if (!this.quote.toks[i].equals(cont.quote.toks[i])) return false;
 			}
 			return true;
 		}
-		return false;
 	}
 }
 
