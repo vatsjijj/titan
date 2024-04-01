@@ -330,6 +330,15 @@ struct Stack {
 	void enquote() {
 		push(Value(Quote(pop())));
 	}
+
+	void absolute() {
+		auto a = pop();
+		if (!a.isKind(ValueKind.Number)) {
+			toss("ABSOLUTE expects a number.");
+		}
+		if (a.num.num < 0) push(Value(Number(-a.num.num)));
+		else push(a);
+	}
 }
 
 class VM {
@@ -446,6 +455,9 @@ class VM {
 					break;
 				case TokenKind.Import:
 					ip++;
+					break;
+				case TokenKind.Absolute:
+					stack.absolute();
 					break;
 				default: {
 					import std.stdio;

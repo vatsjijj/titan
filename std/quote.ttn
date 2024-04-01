@@ -29,6 +29,13 @@ using std.cond
    [∪] <s ∇
 ]
 
+˝ == [
+   : # >s ∘
+   [:s] :s 1 - ' ∪ [- | ⋄] ∪
+   :s 1 - ∇
+   <s ⊑
+]
+
 ⋮ Tentative name for RANGE.
 ,, == [
    >s2
