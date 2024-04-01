@@ -106,7 +106,7 @@ struct Container {
 		return quote.holder.kind == kind;
 	}
 
-	TokenKind getKind() {
+	ref TokenKind getKind() {
 		if (isPrim) return prim.holder.kind;
 		return quote.holder.kind;
 	}
