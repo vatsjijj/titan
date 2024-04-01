@@ -61,6 +61,15 @@ struct Quote {
 			}
 		}
 	}
+
+	bool equals(ref Quote q) {
+		if (this.quote.toks.length != q.quote.toks.length) return false;
+		if (this.quote.toks.length == 0 && q.quote.toks.length == 0) return true;
+		foreach (i; 0..(q.quote.toks.length - 1)) {
+			if (!this.quote.toks[i].equals(q.quote.toks[i])) return false;
+		}
+		return true;
+	}
 }
 
 struct Char {
@@ -140,8 +149,7 @@ struct Value {
 				return num.num == val.num.num;
 			}
 			else {
-				stderr.writeln("Comparison on quotes is not implemented.");
-				return false;
+				return quote.equals(val.quote);
 			}
 		}
 	}
@@ -156,8 +164,7 @@ struct Value {
 				return num.num > val.num.num;
 			}
 			else {
-				stderr.writeln("Comparison on quotes is not implemented.");
-				return false;
+				return quote.quote.toks.length > val.quote.quote.toks.length;
 			}
 		}
 	}
@@ -172,8 +179,7 @@ struct Value {
 				return num.num < val.num.num;
 			}
 			else {
-				stderr.writeln("Comparison on quotes is not implemented.");
-				return false;
+				return quote.quote.toks.length < val.quote.quote.toks.length;
 			}
 		}
 	}

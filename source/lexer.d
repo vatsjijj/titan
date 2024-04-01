@@ -133,6 +133,28 @@ struct Container {
 		}
 		return tmp;
 	}
+
+	bool equals(ref Container cont) {
+		if (this.isPrim != cont.isPrim) return false;
+		if (this.isPrim) {
+			if (this.prim.holder.kind != cont.prim.holder.kind) return false;
+			if (this.prim.holder.kind == TokenKind.Number) {
+				return this.prim.num == cont.prim.num;
+			}
+			else if (this.prim.holder.kind == TokenKind.Char) {
+				return this.prim.chr == cont.prim.chr;
+			}
+			return false;
+		}
+		else {
+			if (this.quote.toks.length != cont.quote.toks.length) return false;
+			foreach (i; 0..(this.quote.toks.length - 1)) {
+				if (!this.quote.toks[i].equals(cont.quote.toks[i])) return false;
+			}
+			return true;
+		}
+		return false;
+	}
 }
 
 final class Lexer {
