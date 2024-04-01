@@ -1,0 +1,4 @@
+using std.option
+using std.out
+
+[10] ["yay!" .nl] ?expect .nl
