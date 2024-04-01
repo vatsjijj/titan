@@ -45,4 +45,4 @@ using std.cond
 ]
 
 ⋮ Tentative name for QUOTEDRANGE.
-.. == [: >s ,, <s ⊑]
+.. == [:2 >s2 ,, <s <s 1 - - ⊑]
