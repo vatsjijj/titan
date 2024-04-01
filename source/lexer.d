@@ -74,6 +74,7 @@ struct TokenQuoted {
 		this.endLine = endLine;
 		this.endCol = endCol;
 		this.holder.len = endCol - this.holder.col;
+		this.toks.reserve(64);
 	}
 
 	void set(ulong line, ulong col, ulong endLine, ulong endCol) {
@@ -83,6 +84,7 @@ struct TokenQuoted {
 		this.endLine = endLine;
 		this.endCol = endCol;
 		this.holder.len = endCol - this.holder.col;
+		this.toks.reserve(64);
 	}
 }
 
