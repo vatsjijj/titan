@@ -35,12 +35,21 @@ final class RuntimeContainer {
 		this.cwd = cwd;
 	}
 
-	bool exists(ref wstring key) => (key in funcTable) !is null;
+	bool exists(ref wstring key) {
+		return (key in funcTable) !is null;
+	}
 
-	private ref Container curr() => toks[ip];
-	private ref Container peek() => toks[ip + 1];
+	private ref Container curr() {
+		return toks[ip];
+	}
 
-	private bool atEnd() => ip + 1 == toks.length;
+	private ref Container peek() {
+		return toks[ip + 1];
+	}
+
+	private bool atEnd() {
+		return ip + 1 == toks.length;
+	}
 
 	private void toss(string msg) {
 		import core.stdc.stdlib : exit;
@@ -118,5 +127,7 @@ final class RuntimeContainer {
 		}
 	}
 
-	ref Function[wstring] table() => this.funcTable;
+	ref Function[wstring] table() {
+		return this.funcTable;
+	}
 }

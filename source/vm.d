@@ -457,6 +457,10 @@ class VM {
 		}
 	}
 
-	ref Stack getStack() => this.stack;
-	ref Stack getStack2() => this.stack2;
+	ref Stack getStack() {
+		return this.stack;
+	}
+	ref Stack getStack2() {
+		return this.stack2;
+	}
 }

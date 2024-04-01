@@ -433,5 +433,7 @@ final class Lexer {
 		}
 	}
 
-	ref Container[] getToks() => this.toks;
+	ref Container[] getToks() {
+		return this.toks;
+	}
 }
