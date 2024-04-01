@@ -102,7 +102,7 @@ You want `OVER`? Well here you go!
 But enough with these *boring* functions, let's do something extra useful. Something like... Defining a conditional `IF`!
 
 ```
-?  == [⋄ ⟷ / ∘]
+? == [⋄ ⟷ / ∘]
 ```
 
 *"Wait... That's it?!"*
@@ -121,12 +121,11 @@ Want a loop? Easy!
 
 ```
 ∇ == [
-   1 -
    >s2
    :s2 /
-   [<s2 ∇] ∪
+   [<s2 1 - ∇] ∪
    [<s2 / /]
-   :s ¬1 ≠ ?
+   :s 0 ≠ ?
 ]
 ```
 
