@@ -5,6 +5,7 @@ import std.string;
 import std.stdio;
 import std.file;
 import lexer;
+import error;
 
 struct Function {
 	TokenPrimitive fn;
@@ -22,17 +23,20 @@ final class RuntimeContainer {
 	private ulong ip;
 	private Container[] toks;
 	private string cwd;
+	TitanError err;
 
-	this(ref Container[] toks, string cwd) {
+	this(ref Container[] toks, string cwd, string fn) {
 		this.toks = toks;
 		this.ip = 0;
 		this.cwd = cwd;
+		this.err.filename = fn;
 	}
-	private this(ref Container[] toks, string cwd, ref bool[wstring] importTable) {
+	private this(ref Container[] toks, string cwd, ref bool[wstring] importTable, string fn) {
 		this.toks = toks;
 		this.ip = 0;
 		this.importTable = importTable;
 		this.cwd = cwd;
+		this.err.filename = fn;
 	}
 
 	bool exists(ref wstring key) {
@@ -52,17 +56,13 @@ final class RuntimeContainer {
 	}
 
 	private void toss(string msg) {
-		import core.stdc.stdlib : exit;
-		import std.stdio;
 		auto tok = curr();
-		stderr.writeln(
-			"Fatal parse error at ",
-			tok.isPrim ? tok.prim.holder.line : tok.quote.holder.line,
-			":",
-			tok.isPrim ? tok.prim.holder.col : tok.quote.holder.col,
-			": ", msg
-		);
-		exit(3);
+		auto line = tok.isPrim ? tok.prim.holder.line : tok.quote.holder.line;
+		auto col = tok.isPrim ? tok.prim.holder.col : tok.quote.holder.col;
+		err.message = msg;
+		err.line = line;
+		err.col = col;
+		err.display(2);
 	}
 
 	private void handleAssignment() {
@@ -90,9 +90,9 @@ final class RuntimeContainer {
 		importTable[currIdent] = true;
 		try {
 			wstring file = to!wstring(readText(currIdent)) ~ '\n';
-			Lexer lex = new Lexer(file);
+			Lexer lex = new Lexer(file, to!string(currIdent));
 			lex.tokenize();
-			RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), cwd, importTable);
+			RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), cwd, importTable, to!string(currIdent));
 			rtc.pass();
 			foreach (k, v; rtc.funcTable) {
 				this.funcTable[k] = v;

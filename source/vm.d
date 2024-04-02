@@ -4,6 +4,7 @@ import std.algorithm.mutation : remove;
 import std.conv : to;
 import std.stdio;
 import lexer;
+import error;
 import pass;
 
 enum ValueKind {
@@ -187,12 +188,28 @@ struct Value {
 
 struct Stack {
 	Value[] content;
+	TitanError err;
 
 	void toss(string msg) {
-		import core.stdc.stdlib : exit;
-		import std.stdio;
-		stderr.writeln(msg);
-		exit(4);
+		auto cr = curr();
+		auto kind = cr.kind;
+		ulong line, col;
+		if (kind == ValueKind.Char) {
+			line = cr.chr.prim.holder.line;
+			col = cr.chr.prim.holder.col;
+		}
+		else if (kind == ValueKind.Number) {
+			line = cr.num.prim.holder.line;
+			col = cr.num.prim.holder.col;
+		}
+		else {
+			line = cr.quote.quote.holder.line;
+			col = cr.quote.quote.holder.col;
+		}
+		err.line = line;
+		err.col = col;
+		err.message = msg;
+		err.display(4);
 	}
 
 	ref Value curr() {
@@ -347,12 +364,14 @@ class VM {
 	private Stack stack, stack2;
 	private Function[wstring] table;
 
-	this(ref Lexer lex, ref RuntimeContainer rtc) {
+	this(ref Lexer lex, ref RuntimeContainer rtc, string filename) {
 		this.lex = lex;
 		this.rtc = rtc;
 		this.table = rtc.table();
 		this.stack.content.reserve(512);
 		this.stack2.content.reserve(512);
+		this.stack.err.filename = filename;
+		this.stack2.err.filename = filename;
 	}
 
 	void run(ref Container[] toks) {

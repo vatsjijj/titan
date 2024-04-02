@@ -2,6 +2,7 @@ module lexer;
 
 import std.conv : to;
 import std.uni;
+import error;
 
 enum TokenKind {
 	Number,
@@ -162,22 +163,21 @@ final class Lexer {
 	private ulong ip, line, col;
 	private Container[] toks;
 	wstring file;
+	TitanError err;
 
-	this(ref wstring file) {
+	this(ref wstring file, string filename) {
 		this.file = file;
 		this.ip = 0;
 		this.line = 1;
 		this.col = 1;
+		this.err.filename = filename;
 	}
 
 	private void toss(string msg) {
-		import core.stdc.stdlib : exit;
-		import std.stdio;
-		stderr.writeln(
-			"Fatal lexical error at ", this.line, ":", this.col,
-			": ", msg
-		);
-		exit(1);
+		err.message = msg;
+		err.line = line;
+		err.col = col;
+		err.display(1);
 	}
 
 	private bool isChar(wchar[] chs...) {
@@ -394,7 +394,7 @@ final class Lexer {
 		ulong endLine = this.line;
 		ulong endCol = this.col;
 		tmp ~= '\n';
-		Lexer tmpLexer = new Lexer(tmp);
+		Lexer tmpLexer = new Lexer(tmp, err.filename);
 		tmpLexer.tokenize();
 		quote = TokenQuoted(tmpLine, tmpCol, endLine, endCol);
 		quote.toks = tmpLexer.getToks();

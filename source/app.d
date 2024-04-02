@@ -2,10 +2,11 @@ import std.conv : to;
 import std.stdio;
 import std.file;
 import lexer;
+import error;
 import pass;
 import vm;
 
-const string ver = "0.1.0";
+const string ver = "0.1.1";
 
 void help(ref string[] args) {
 	writeln("Usage:");
@@ -32,11 +33,11 @@ int main(string[] args) {
 	}
 	try {
 		wstring file = to!wstring(readText(args[1])) ~ '\n';
-		Lexer lex = new Lexer(file);
+		Lexer lex = new Lexer(file, args[1]);
 		lex.tokenize();
-		RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), getcwd());
+		RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), getcwd(), args[1]);
 		rtc.pass();
-		VM rt = new VM(lex, rtc);
+		VM rt = new VM(lex, rtc, args[1]);
 		rt.run(lex.getToks());
 	}
 	catch (Exception e) {
