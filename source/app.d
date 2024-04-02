@@ -5,13 +5,30 @@ import lexer;
 import pass;
 import vm;
 
+const string ver = "0.1.0";
+
+void help(ref string[] args) {
+	writeln("Usage:");
+	writeln("\t", args[0], " [inputFile]");
+	writeln("Flags:");
+	writeln("\t--version, -v\tDisplays version information.");
+	writeln("\t--help, -h\tDisplays this message.");
+}
+
 int main(string[] args) {
 	if (args.length < 2) {
 		stderr.writeln("Expected an argument.");
-		stderr.writeln("Usage:");
-		stderr.writeln("\t", args[0], " inputFile");
 		stderr.flush();
+		help(args);
 		return 1;
+	}
+	if (args[1] == "--version" || args[1] == "-v") {
+		writeln("Titan ", ver);
+		return 0;
+	}
+	else if (args[1] == "--help" || args[1] == "-h") {
+		help(args);
+		return 0;
 	}
 	try {
 		wstring file = to!wstring(readText(args[1])) ~ '\n';
