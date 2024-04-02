@@ -3,4 +3,4 @@ using std.manip
 using std.quote
 using std.out
 
-"string" "sting" [# '] [∪] ○ .nl
+"sting" "string" [# '] [∪] ○ .nl
