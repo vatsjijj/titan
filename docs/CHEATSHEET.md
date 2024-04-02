@@ -143,4 +143,7 @@ Now remember how much you wanted that newline? You've earned it, here it is.
 .nl == [`%n` ⟷ . .]
 ```
 
+## Now What?
+Go ahead and check out the [documentation hub](HUB.md)! Or if you're feeling brave, take a peek into the standard library itself!
+
 __*More will likely be added to this document in the future.*__
