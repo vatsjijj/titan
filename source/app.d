@@ -1,6 +1,6 @@
+import std.conv : to;
 import std.stdio;
 import std.file;
-import std.conv : to;
 import lexer;
 import pass;
 import vm;
@@ -9,7 +9,8 @@ int main(string[] args) {
 	if (args.length < 2) {
 		stderr.writeln("Expected an argument.");
 		stderr.writeln("Usage:");
-		stderr.writeln("\t" ~ args[0] ~ " inputFile");
+		stderr.writeln("\t", args[0], " inputFile");
+		stderr.flush();
 		return 1;
 	}
 	try {
@@ -23,6 +24,7 @@ int main(string[] args) {
 	}
 	catch (Exception e) {
 		stderr.writeln(e.message);
+		stderr.flush();
 		return 2;
 	}
 

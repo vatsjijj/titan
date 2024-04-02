@@ -2,8 +2,8 @@ module pass;
 
 import std.conv : to;
 import std.string;
-import std.file;
 import std.stdio;
+import std.file;
 import lexer;
 
 struct Function {

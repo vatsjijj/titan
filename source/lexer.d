@@ -1,7 +1,7 @@
 module lexer;
 
-import std.uni;
 import std.conv : to;
+import std.uni;
 
 enum TokenKind {
 	Number,
@@ -115,7 +115,6 @@ struct Container {
 	}
 
 	string strRepr(ulong indent = 0) {
-		import std.conv : to;
 		string tmp;
 		foreach (_; 0..indent) {
 			tmp ~= "   ";

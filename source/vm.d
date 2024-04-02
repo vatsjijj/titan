@@ -1,7 +1,7 @@
 module vm;
 
-import std.conv : to;
 import std.algorithm.mutation : remove;
+import std.conv : to;
 import std.stdio;
 import lexer;
 import pass;

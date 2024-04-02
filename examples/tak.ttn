@@ -4,7 +4,7 @@ using std.quote
 using std.cond
 using std.out
 
-⋮ Z Y X -> S
+⋮ Z Y X → S
 tak == [
    3 ⊑ >s
    [
