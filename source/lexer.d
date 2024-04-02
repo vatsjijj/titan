@@ -12,7 +12,6 @@ enum TokenKind {
 	Mult, Div,
 	Modulo,
 	Union,
-	Intersection,
 	Apply,
 	Enquote,
 	Dup,
@@ -229,9 +228,6 @@ final class Lexer {
 				break;
 			case "∪":
 				toks ~= Container(TokenPrimitive(TokenKind.Union, tmp, tmpLine, tmpCol));
-				break;
-			case "∩":
-				toks ~= Container(TokenPrimitive(TokenKind.Intersection, tmp, tmpLine, tmpCol));
 				break;
 			case "∘":
 				toks ~= Container(TokenPrimitive(TokenKind.Apply, tmp, tmpLine, tmpCol));

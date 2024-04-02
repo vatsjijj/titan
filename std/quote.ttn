@@ -61,5 +61,5 @@ using std.cond
    :s2 ≤ ?
 ]
 
-⋮ Tentative name for QUOTEDRANGE.
+⋮ Tentative name for QRANGE.
 .. == [:2 >s2 ,, <s <s 1 - - ⊑]
