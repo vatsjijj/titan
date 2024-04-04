@@ -2,7 +2,7 @@ exec = titan
 CXX = g++
 SRC = $(wildcard src/*.cc)
 OBJ = $(SRC:.cc=.o)
-CXXFLAGS = -std=c++20 -Wall -O3 -march=native
+CXXFLAGS = -std=c++20 -Wall -Wpedantic -O3 -march=native
 LDFLAGS = -lboost_locale -flto
 
 $(exec): $(OBJ)
