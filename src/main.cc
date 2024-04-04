@@ -2,6 +2,7 @@
 #include <cstring>
 #include "include/file.hh"
 #include "include/common.hh"
+#include "include/color.hh"
 
 void help(const char* arg) {
 	std::cout << "Usage:\n\t";
@@ -29,6 +30,8 @@ int main(int argc, const char* argv[]) {
 	}
 
 	auto file = Titan::readFile(argv[1]);
+
+	Titan::writeLine("red!", Titan::RGB(255, 0, 0, Titan::Style::ITALIC));
 
 	return 0;
 }

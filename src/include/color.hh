@@ -15,12 +15,30 @@ namespace Titan {
 		ITALIC,
 		BOLD,
 		DIM,
+		NONE,
 	};
+
+	bool checkEnv();
 
 	class RGB {
 	public:
 		RGB(uint8_t r, uint8_t g, uint8_t b);
+		RGB(uint8_t r, uint8_t g, uint8_t b, Style style);
+		
+		std::string asString();
+
+		bool getNoColor();
 	private:
-		uint8_t r, g, b;
+		uint8_t _r, _g, _b;
+		Style _style;
+		bool _noColor;
+
+		std::string _emitStyle();
+
+		std::string _emitColor();
 	};
+
+	void write(std::string msg, RGB color);
+
+	void writeLine(std::string msg, RGB color);
 }
