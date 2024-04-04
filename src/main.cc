@@ -5,11 +5,11 @@
 #include "include/color.hh"
 
 void help(const char* arg) {
-	Titan::ewriteLine("Usage:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
+	Titan::writeLine("Usage:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
 	std::cout << '\t' << arg << " [file]\n\t";
 	std::cout << arg << " [flag]\n\n";
 
-	Titan::ewriteLine("Flags:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
+	Titan::writeLine("Flags:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
 	std::cout << "\t--help, -h\tDisplays this message.\n\t";
 	std::cout << "--version, -v\tDisplays version information." << std::endl;
 }
