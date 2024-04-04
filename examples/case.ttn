@@ -1,0 +1,12 @@
+using std.quote
+using std.cond
+using std.out
+
+⋮ Proof of concept.
+⋮ [
+⋮    ["one" .nl]   [1 =]
+⋮    ["two" .nl]   [2 =]
+⋮    ["three" .nl] [3 =]
+⋮    ["four" .nl]  [4 =]
+⋮    ["five" .nl]  [5 =]
+⋮ ] ≡

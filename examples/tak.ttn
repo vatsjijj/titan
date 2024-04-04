@@ -4,7 +4,7 @@ using std.quote
 using std.cond
 using std.out
 
-⋮ Z Y X -> S
+⋮ Z Y X → S
 tak == [
    3 ⊑ >s
    [
@@ -17,4 +17,4 @@ tak == [
    :s ∘ ⍉ / < ?
 ]
 
-6 12 20 tak .nl
+8 4 7 tak .nl

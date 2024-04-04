@@ -102,7 +102,7 @@ You want `OVER`? Well here you go!
 But enough with these *boring* functions, let's do something extra useful. Something like... Defining a conditional `IF`!
 
 ```
-?  == [⋄ ⟷ / ∘]
+? == [⋄ ⟷ / ∘]
 ```
 
 *"Wait... That's it?!"*
@@ -121,12 +121,11 @@ Want a loop? Easy!
 
 ```
 ∇ == [
-   1 -
    >s2
    :s2 /
-   [<s2 ∇] ∪
+   [<s2 1 - ∇] ∪
    [<s2 / /]
-   :s ¬1 ≠ ?
+   :s 0 ≠ ?
 ]
 ```
 
@@ -143,5 +142,8 @@ Now remember how much you wanted that newline? You've earned it, here it is.
 ```
 .nl == [`%n` ⟷ . .]
 ```
+
+## Now What?
+Go ahead and check out the [documentation hub](HUB.md)! Or if you're feeling brave, take a peek into the standard library itself!
 
 __*More will likely be added to this document in the future.*__

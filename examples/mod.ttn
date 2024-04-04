@@ -1,0 +1,6 @@
+using std.modifier
+using std.manip
+using std.quote
+using std.out
+
+"sting" "string" [# '] [∪] ○ .nl

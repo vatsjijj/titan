@@ -1,0 +1,9 @@
+using std.manip
+using std.cond
+using std.out
+
+?is == [# 1 =]
+
+?not == [# 0 =]
+
+?expect == [⟷ >s :s ?is ⟷ [<s ∘] ∪ ["expected a value" .nl <s /] ⍉ ?]

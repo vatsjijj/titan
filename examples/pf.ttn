@@ -1,0 +1,12 @@
+using std.smanip
+using std.manip
+using std.quote
+using std.out
+
+:apply == [:s ∘]
+
+shift == [/ ⟷ ∘ ⟷]
+
+thing == [>s :apply ⟷ shift :apply shift 2 ⊑]
+
+[2 +] [3 +] [1 2] thing .nl

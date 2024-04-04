@@ -1,0 +1,23 @@
+using std.manip
+using std.quote
+using std.cond
+using std.out
+
+beers == [
+   [
+      :s . " bottles of beer on the wall, " .
+      :s . " bottles of beer!" .nl
+      "Take one down, pass it around! " .
+      :s 1 - :
+      [
+         : . " more " .
+         ["bottles"] ["bottle"] ⍉ 1 > ?
+         . " of beer on the wall!" .nl
+      ]
+      [
+         "No more bottles of beer on the wall!" .nl /
+      ] ⍉ 0 ≠ ?
+   ] ⟷ ∇
+]
+
+99 beers

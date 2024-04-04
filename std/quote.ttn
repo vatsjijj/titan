@@ -1,5 +1,5 @@
-using std.manip
 using std.smanip
+using std.manip
 using std.cond
 
 ⊥ == [
@@ -9,6 +9,8 @@ using std.cond
    # 1 - ∇
    <s2 / /
 ]
+
+Σ == [[+] ⊥]
 
 ∀ == [
    >s2
@@ -29,6 +31,28 @@ using std.cond
    [∪] <s ∇
 ]
 
+˝ == [
+   : # >s ∘
+   [:s] :s ' ∪ [- | ⋄] ∪
+   :s 1 - ∇
+   <s ⊑
+]
+
+@ == [
+   ⟷ : # >s ⟷ >s
+   ˝ ∘ <s ⋄ >s [/] <s <s ⟷ >s 1 - ∇ <s
+]
+
+∊ == [
+   : Σ >s ⟷ : >s ⟷ : : # >s ∘
+   [[<s2 : 1 - >s >s2] [] ⍉ 1 = ?] <s ∇
+   Σ : : >s [<s2 <s <s ⟷ >s ⍉ ⍉ >s2] ⟷ ∇
+   <s2 [: ⍉ @ <s2 ⍉ >s >s2] ⟷ ∇ /
+   [<s2 <s ⍉ ⍉ >s2] ⟷ ∇ <s ⊑ ⟷ /
+]
+
+⍷ == [≍ ⟷ ∀ ∊]
+
 ⋮ Tentative name for RANGE.
 ,, == [
    >s2
@@ -37,5 +61,5 @@ using std.cond
    :s2 ≤ ?
 ]
 
-⋮ Tentative name for QUOTEDRANGE.
-.. == [: >s ,, <s ⊑]
+⋮ Tentative name for QRANGE.
+.. == [:2 >s2 ,, <s <s 1 - - ⊑]
