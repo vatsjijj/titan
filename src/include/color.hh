@@ -41,4 +41,8 @@ namespace Titan {
 	void write(std::string msg, RGB color);
 
 	void writeLine(std::string msg, RGB color);
+
+	void ewrite(std::string msg, RGB color);
+
+	void ewriteLine(std::string msg, RGB color);
 }

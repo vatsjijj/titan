@@ -70,3 +70,16 @@ void Titan::writeLine(std::string msg, RGB color) {
 	write(msg, color);
 	std::cout << '\n';
 }
+
+void Titan::ewrite(std::string msg, RGB color) {
+	if (color.getNoColor()) {
+		std::cerr << msg;
+		return;
+	}
+	std::cerr << color.asString() << msg << RESET;
+}
+
+void Titan::ewriteLine(std::string msg, RGB color) {
+	ewrite(msg, color);
+	std::cerr << '\n';
+}
