@@ -1,5 +1,5 @@
 exec = titan
-CXX = g++
+CXX = clang++
 SRC = $(wildcard src/*.cc)
 OBJ = $(SRC:.cc=.o)
 CXXFLAGS = -std=c++20 -Wall -Wpedantic -O3 -march=native
@@ -9,7 +9,7 @@ $(exec): $(OBJ)
 	$(CXX) $(OBJ) $(CXXFLAGS) -o $(exec) $(LDFLAGS)
 
 %.o: %.cc include/%.hh
-	$(CXX) -c $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 clean:
 	clear

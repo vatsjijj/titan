@@ -25,7 +25,7 @@ AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: true
@@ -50,7 +50,7 @@ IndentWrappedFunctionNames: true
 InsertNewlineAtEOF: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 LambdaBodyIndentation: Signature
-PackConstructorInitializers: Never
+PackConstructorInitializers: NextLine
 PointerAlignment: Left
 ReferenceAlignment: Left
 ReflowComments: true
