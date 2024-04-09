@@ -1,7 +1,7 @@
 #include "include/file.hh"
+#include <boost/locale.hpp>
 #include <fstream>
 #include <sstream>
-#include <boost/locale.hpp>
 
 std::u16string Titan::readFile(std::string filename) {
 	std::ifstream f(filename);

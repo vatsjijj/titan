@@ -1,25 +1,25 @@
-#include <sstream>
-#include <iostream>
-#include <cstdlib>
 #include "include/color.hh"
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
 
 bool Titan::checkEnv() {
 	return std::getenv("NO_COLOR") && std::getenv("NO_COLOR")[0] != '\0';
 }
 
 Titan::RGB::RGB(uint8_t r, uint8_t g, uint8_t b) {
-	_r = r;
-	_g = g;
-	_b = b;
-	_style = Style::NONE;
+	_r       = r;
+	_g       = g;
+	_b       = b;
+	_style   = Style::NONE;
 	_noColor = checkEnv();
 }
 
 Titan::RGB::RGB(uint8_t r, uint8_t g, uint8_t b, Style style) {
-	_r = r;
-	_g = g;
-	_b = b;
-	_style = style;
+	_r       = r;
+	_g       = g;
+	_b       = b;
+	_style   = style;
 	_noColor = checkEnv();
 }
 

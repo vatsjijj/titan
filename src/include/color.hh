@@ -1,7 +1,7 @@
 #pragma once
 
-#include <string>
 #include <cstdint>
+#include <string>
 
 namespace Titan {
 	const std::string RESET     = "\x1b[0m";
@@ -21,14 +21,15 @@ namespace Titan {
 	bool checkEnv();
 
 	class RGB {
-	public:
+	 public:
 		RGB(uint8_t r, uint8_t g, uint8_t b);
 		RGB(uint8_t r, uint8_t g, uint8_t b, Style style);
-		
+
 		std::string asString();
 
 		bool getNoColor();
-	private:
+
+	 private:
 		uint8_t _r, _g, _b;
 		Style _style;
 		bool _noColor;
@@ -45,4 +46,4 @@ namespace Titan {
 	void ewrite(std::string msg, RGB color);
 
 	void ewriteLine(std::string msg, RGB color);
-}
+} // namespace Titan

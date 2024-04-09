@@ -1,8 +1,8 @@
-#include <iostream>
-#include <cstring>
-#include "include/file.hh"
-#include "include/common.hh"
 #include "include/color.hh"
+#include "include/common.hh"
+#include "include/file.hh"
+#include <cstring>
+#include <iostream>
 
 void help(const char* arg) {
 	Titan::writeLine("Usage:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
