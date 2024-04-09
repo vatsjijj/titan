@@ -5,18 +5,18 @@
 #include <iostream>
 
 void help(const char* arg) {
-	Titan::writeLine("Usage:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
+	Titan::writeLine("Usage:", Titan::RGB(0, 255, 255, {Titan::Style::BOLD}));
 	std::cout << '\t' << arg << " [file]\n\t";
 	std::cout << arg << " [flag]\n\n";
 
-	Titan::writeLine("Flags:", Titan::RGB(0, 255, 255, Titan::Style::BOLD));
+	Titan::writeLine("Flags:", Titan::RGB(0, 255, 255, {Titan::Style::BOLD}));
 	std::cout << "\t--help, -h\tDisplays this message.\n\t";
 	std::cout << "--version, -v\tDisplays version information." << std::endl;
 }
 
 int main(int argc, const char* argv[]) {
 	if (argc < 2) {
-		Titan::ewrite("Error: ", Titan::RGB(255, 0, 0, Titan::Style::BOLD));
+		Titan::ewrite("Error: ", Titan::RGB(255, 0, 0, {Titan::Style::BOLD}));
 		std::cerr << "Expected an argument.\n";
 		help(argv[0]);
 		return 1;

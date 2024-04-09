@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <string>
+#include <vector>
 
 namespace Titan {
 	const std::string RESET     = "\x1b[0m";
@@ -23,7 +24,7 @@ namespace Titan {
 	class RGB {
 	 public:
 		RGB(uint8_t r, uint8_t g, uint8_t b);
-		RGB(uint8_t r, uint8_t g, uint8_t b, Style style);
+		RGB(uint8_t r, uint8_t g, uint8_t b, std::vector<Style> styles);
 
 		std::string asString();
 
@@ -31,19 +32,25 @@ namespace Titan {
 
 	 private:
 		uint8_t _r, _g, _b;
-		Style _style;
+		std::vector<Style> _styles;
 		bool _noColor;
 
-		std::string _emitStyle();
+		std::string _emitStyle(Style& style);
+
+		std::string _emitStyles();
 
 		std::string _emitColor();
 	};
 
 	void write(std::string msg, RGB color);
+	void write(std::u16string msg, RGB color);
 
 	void writeLine(std::string msg, RGB color);
+	void writeLine(std::u16string msg, RGB color);
 
 	void ewrite(std::string msg, RGB color);
+	void ewrite(std::u16string msg, RGB color);
 
 	void ewriteLine(std::string msg, RGB color);
+	void ewriteLine(std::u16string msg, RGB color);
 } // namespace Titan
