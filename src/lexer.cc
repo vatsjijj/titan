@@ -113,6 +113,60 @@ Titan::ValueKind& Titan::Container::getKind() {
 	return _kind;
 }
 
+// Util functions for tokenize.
+
+enum class Result {
+	YES,
+	AMBIGUOUS,
+	NO,
+};
+
+Result isWhite(char16_t ch) {
+	switch (ch) {
+		case u' ':
+		case u'\t':
+		case u'\r':
+		case u'\n':
+			return Result::YES;
+		case u'\v':
+		case u'\f':
+		case u'\u0085':
+		case u'\u00A0':
+		case u'\u1680':
+		case u'\u2000':
+		case u'\u2001':
+		case u'\u2002':
+		case u'\u2003':
+		case u'\u2004':
+		case u'\u2005':
+		case u'\u2006':
+		case u'\u2007':
+		case u'\u2008':
+		case u'\u2009':
+		case u'\u200A':
+		case u'\u2028':
+		case u'\u2029':
+		case u'\u202F':
+		case u'\u205F':
+		case u'\u3000':
+		case u'\u180E': // Sorry Mongolians.
+		case u'\u200B':
+		case u'\u200C':
+		case u'\u200D':
+		case u'\u2060':
+		case u'\uFEFF':
+			return Result::AMBIGUOUS;
+		default:
+			return Result::NO;
+	}
+}
+
+Result isDigit(char16_t ch) {
+	return (ch >= u'0' && ch <= u'9') ? Result::YES : Result::NO;
+}
+
+// End util functions.
+
 void Titan::Lexer::tokenize() {}
 
 std::u16string& Titan::Lexer::getFile() {
