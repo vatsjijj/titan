@@ -3,8 +3,6 @@ import std.stdio;
 import std.file;
 import lexer;
 import error;
-import pass;
-import vm;
 
 const string ver = "0.1.1";
 
@@ -35,10 +33,6 @@ int main(string[] args) {
 		wstring file = to!wstring(readText(args[1])) ~ '\n';
 		Lexer lex = new Lexer(file, args[1]);
 		lex.tokenize();
-		RuntimeContainer rtc = new RuntimeContainer(lex.getToks(), getcwd(), args[1]);
-		rtc.pass();
-		VM rt = new VM(lex, rtc, args[1]);
-		rt.run(lex.getToks());
 	}
 	catch (Exception e) {
 		stderr.writeln(e.message);
