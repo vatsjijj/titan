@@ -4,7 +4,7 @@ import std.file;
 import lexer;
 import error;
 
-const string ver = "0.1.1";
+const string ver = "0.1.0";
 
 void help(ref string[] args) {
 	writeln("Usage:");
@@ -22,7 +22,7 @@ int main(string[] args) {
 		return 1;
 	}
 	if (args[1] == "--version" || args[1] == "-v") {
-		writeln("Titan ", ver);
+		writeln("Titan-CD ", ver);
 		return 0;
 	}
 	else if (args[1] == "--help" || args[1] == "-h") {
