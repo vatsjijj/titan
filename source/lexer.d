@@ -177,6 +177,7 @@ final class Lexer {
 		err.message = msg;
 		err.line = line;
 		err.col = col;
+		err.kind = MessageKind.Fatal;
 		err.display(1);
 	}
 
