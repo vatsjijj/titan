@@ -1,3 +1,5 @@
+module color;
+
 import std.conv : to;
 import std.process : environment;
 

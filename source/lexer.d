@@ -189,7 +189,7 @@ final class Lexer {
 	}
 
 	private void whitespace() {
-		while (isWhite(file[ip])) {
+		while (ip < file.length && isWhite(file[ip])) {
 			if (file[ip] == '\n') {
 				ip++;
 				line++;
