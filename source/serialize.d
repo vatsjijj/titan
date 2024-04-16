@@ -158,6 +158,10 @@ final class ConstantPool : DynSerializable, Emittable {
 		this.pool = pool;
 	}
 
+	ulong pullLength() {
+		return pool.length;
+	}
+
 	Length add(ref Emittable item) {
 		Length len = new Length(pool.length);
 		this.pool ~= item;

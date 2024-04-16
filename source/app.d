@@ -8,6 +8,7 @@ import color;
 import compiler;
 import vm;
 import serialize;
+import dbg;
 
 const string ver = "0.1.0";
 const ubyte[5] magicNumber = cast(ubyte[5])"T2BC\n";
@@ -21,6 +22,7 @@ void help(ref string[] args) {
 	writeln(info, "Flags", RESET, ':');
 	writeln(explain, "\t--version", RESET, ", ", explain, "-v", RESET, "\tDisplays version information.");
 	writeln(explain, "\t--help", RESET, ", ", explain, "-h", RESET, "\tDisplays this message.");
+	writeln(explain, "\t--disassemble", RESET, ", ", explain, "-dasm", RESET, "\tDisassembles T2BC.");
 }
 
 void status(string msg) {
@@ -33,9 +35,26 @@ void info(string msg) {
 	writeln(info, "     Info", RESET, ":\t ", msg);
 }
 
+int dbgDasm(ref string[] args) {
+	try {
+		ubyte[] file = cast(ubyte[])std.file.read(args[1]);
+		dasm(file);
+	}
+	catch (Exception e) {
+		RGB error = new RGB(ERROR, Style.Bold);
+		stderr.writeln(error, "Error", RESET, ": ", e.message);
+		return 1;
+	}
+	return 0;
+}
+
 int main(string[] args) {
 	string output = "out.t2bc";
-	if (args.length < 2) {
+	if (args.length == 3 && (args[2] == "--disassemble" || args[2] == "-dasm")) {
+		writeln("Disassembling ", args[1], ".\n");
+		return dbgDasm(args);
+	}
+	else if (args.length < 2) {
 		RGB error = new RGB(ERROR, Style.Bold);
 		stderr.write(error, "Error", RESET, ": ");
 		stderr.writeln("Expected an argument.");
